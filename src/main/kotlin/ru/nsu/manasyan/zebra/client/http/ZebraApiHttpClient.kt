@@ -1,4 +1,4 @@
-package ru.nsu.manasyan.zebra.client
+package ru.nsu.manasyan.zebra.client.http
 
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -9,6 +9,9 @@ import io.ktor.client.statement.*
 import io.ktor.http.HttpStatusCode.Companion.InternalServerError
 import io.ktor.serialization.gson.*
 import ru.nsu.manasyan.zebra.ServerErrorException
+import ru.nsu.manasyan.zebra.client.ZebraDatabaseApiClient
+import ru.nsu.manasyan.zebra.client.ZebraRepositoryApiClient
+import ru.nsu.manasyan.zebra.client.ZebraStorageApiClient
 
 class ZebraApiHttpClient(private val serverUrl: String) {
 

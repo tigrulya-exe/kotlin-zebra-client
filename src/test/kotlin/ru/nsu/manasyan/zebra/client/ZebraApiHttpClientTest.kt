@@ -1,6 +1,7 @@
 package ru.nsu.manasyan.zebra.client
 
 import kotlinx.coroutines.runBlocking
+import ru.nsu.manasyan.zebra.client.http.ZebraApiHttpClient
 import ru.nsu.manasyan.zebra.model.DatabaseUpsertDto
 import ru.nsu.manasyan.zebra.model.RepositoryUpsertDto
 import ru.nsu.manasyan.zebra.model.SearchRequest

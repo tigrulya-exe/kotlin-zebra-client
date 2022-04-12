@@ -1,9 +1,10 @@
-package ru.nsu.manasyan.zebra.client
+package ru.nsu.manasyan.zebra.client.http
 
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
-import ru.nsu.manasyan.zebra.client.ZebraApiHttpClient.Companion.wrapResponse
+import ru.nsu.manasyan.zebra.client.ZebraDatabaseApiClient
+import ru.nsu.manasyan.zebra.client.http.ZebraApiHttpClient.Companion.wrapResponse
 import ru.nsu.manasyan.zebra.model.*
 
 class ZebraDatabaseApiHttpClient(private val httpClient: HttpClient) : ZebraDatabaseApiClient {

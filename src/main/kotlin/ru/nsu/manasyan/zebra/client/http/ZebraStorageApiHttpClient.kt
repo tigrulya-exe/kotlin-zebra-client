@@ -1,10 +1,11 @@
-package ru.nsu.manasyan.zebra.client
+package ru.nsu.manasyan.zebra.client.http
 
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
 import io.ktor.http.*
-import ru.nsu.manasyan.zebra.client.ZebraApiHttpClient.Companion.wrapResponse
+import ru.nsu.manasyan.zebra.client.ZebraStorageApiClient
+import ru.nsu.manasyan.zebra.client.http.ZebraApiHttpClient.Companion.wrapResponse
 import ru.nsu.manasyan.zebra.model.Results
 import ru.nsu.manasyan.zebra.model.StorageDto
 import ru.nsu.manasyan.zebra.model.UpdateStorageDto
