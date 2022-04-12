@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dc:collection xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://fit.nsu.ru/ds">
+   <dc:metadata>
+      <dc:identifier>https://www.nsu.ru</dc:identifier>
+      <dc:title>Новосибирский государственный университет</dc:title>
+      <dc:title>НГУ</dc:title>
+      <dc:creator>Михаил Алексеевич Лаврентьев</dc:creator>
+      <dc:description>Новосибирский государственный университет – один из национальных исследовательских университетов России. Университет входит в число участников Проекта 5-100 — программы повышения международной конкурентоспособности российских вузов среди ведущих мировых научно-образовательных центров.</dc:description>
+      <dc:language>ru</dc:language>
+      <dc:publisher>Tigran Manasyan</dc:publisher>
+      <dc:date>2022-03-22</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+   </dc:metadata>
+   <dc:metadata>
+      <dc:identifier>https://www.nsu.ru/n/information-technologies-department/</dc:identifier>
+      <dc:title>Факультет информационных технологий Новосибирского государственного университета</dc:title>
+      <dc:title>ФИТ НГУ</dc:title>
+      <dc:creator>Кутявина Ольга Анатольевна</dc:creator>
+      <dc:description>Основная задача Факультета информационных технологий — подготовка специалистов высокой квалификации в сфере информационных технологий, способных на базе фундаментальной подготовки по информатике, математике, физике вести как прикладную, так и научно-исследовательскую работу в области информатики и во всех ее приложениях, от системного программирования до физико-технической информатики</dc:description>
+      <dc:language>ru</dc:language>
+      <dc:publisher>Tigran Manasyan</dc:publisher>
+      <dc:date>2022-03-22</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+   </dc:metadata>
+   <dc:metadata>
+      <dc:identifier>https://english.nsu.ru/</dc:identifier>
+      <dc:title>Novosibirsk State University</dc:title>
+      <dc:title>NSU</dc:title>
+      <dc:creator>Mikhail Alekseevich Lavrentyev</dc:creator>
+      <dc:description>Novosibirsk State University is a public research university located in Novosibirsk, Russia. The university was founded in 1958, on the principles of integration of education and science, early involvement of students with research activities and the engagement of leading scientists in its teaching programmes. As for 2022, Novosibirsk State University has 246th place in the rating of the QS World University Rankings.</dc:description>
+      <dc:language>en</dc:language>
+      <dc:publisher>Tigran Manasyan</dc:publisher>
+      <dc:date>2022-03-22</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+   </dc:metadata>
+   <dc:metadata>
+      <dc:identifier>https://vk.com/koinsu</dc:identifier>
+      <dc:title>Кафедра общей информатики ФИТ НГУ</dc:title>
+      <dc:title>КОИ ФИТ НГУ</dc:title>
+      <dc:creator>Пальчунов Дмитрий Евгеньевич</dc:creator>
+      <dc:description>Кафедра общей информатики ФИТ - одна из самых больших кафедр в Новосибирском государственном университете.
+						        Более половины наших сотрудников - молодые преподаватели.
+						        Для студентов мы предлагаем широкий выбор тем для написания выпускной квалификационной работы, знакомства с научными руководителями - ведущими специалистами в отрасли, интересные спецкурсы и уютные взаимоотношения с бюрократией</dc:description>
+      <dc:language>ru</dc:language>
+      <dc:publisher>Chimit Naydanov</dc:publisher>
+      <dc:date>2022-03-21</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+   </dc:metadata>
+   <dc:metadata>
+      <dc:identifier>https://research.nsu.ru/ru/organisations/%D0%BA%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0-%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D1%85-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9-%D1%84%D0%B8%D1%82/</dc:identifier>
+      <dc:title>Кафедра компьютерных технологий ФИТ НГУ</dc:title>
+      <dc:title>КОИ ФИТ НГУ</dc:title>
+      <dc:creator>Зюбин Владимир Евгеньевич</dc:creator>
+      <dc:description>Кафедра компьютерных технологий ФИТ НГУ - одна из самых больших кафедр в Новосибирском государственном университете.</dc:description>
+      <dc:language>ru</dc:language>
+      <dc:date>2022-03-21</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+   </dc:metadata>
+</dc:collection>
