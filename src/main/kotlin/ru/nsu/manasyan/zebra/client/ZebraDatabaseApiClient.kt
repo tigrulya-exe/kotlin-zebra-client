@@ -17,7 +17,7 @@ interface ZebraDatabaseApiClient {
 
     suspend fun drop(id: String): ValueResult<DatabaseDto>
 
-    suspend fun search(id: String, searchRequest: SearchRequest): ValueResult<SearchResponse>
+    suspend fun search(id: String, searchRequest: SearchRequest): ValueResult<ValueResult<SearchResponse>>
 
-    suspend fun scan(id: String, scanRequest: ScanRequest): ValueResult<ScanResponse>
+    suspend fun scan(id: String, scanRequest: ScanRequest): ValueResult<ValueResult<ScanResponse>>
 }

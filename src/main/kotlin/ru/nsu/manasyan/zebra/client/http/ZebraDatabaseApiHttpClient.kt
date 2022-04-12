@@ -48,7 +48,7 @@ class ZebraDatabaseApiHttpClient(private val httpClient: HttpClient) : ZebraData
         return wrapResponse(httpClient.post("$BASE_URL/$id/drop"))
     }
 
-    override suspend fun search(id: String, searchRequest: SearchRequest): ValueResult<SearchResponse> {
+    override suspend fun search(id: String, searchRequest: SearchRequest): ValueResult<ValueResult<SearchResponse>> {
         return wrapResponse(httpClient.get {
             url("$BASE_URL/$id/search")
             parameter("type", searchRequest.type)
@@ -60,7 +60,7 @@ class ZebraDatabaseApiHttpClient(private val httpClient: HttpClient) : ZebraData
         })
     }
 
-    override suspend fun scan(id: String, scanRequest: ScanRequest): ValueResult<ScanResponse> {
+    override suspend fun scan(id: String, scanRequest: ScanRequest): ValueResult<ValueResult<ScanResponse>> {
         return wrapResponse(httpClient.get {
             url("$BASE_URL/$id/scan")
             parameter("type", scanRequest.type)

@@ -5,6 +5,7 @@ import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.plugins.logging.*
 import io.ktor.client.statement.*
 import io.ktor.http.HttpStatusCode.Companion.InternalServerError
 import io.ktor.serialization.gson.*
@@ -21,6 +22,9 @@ class ZebraApiHttpClient(private val serverUrl: String) {
         }
         install(ContentNegotiation) {
             gson()
+        }
+        install(Logging) {
+            level = LogLevel.BODY
         }
     }
     val storages: ZebraStorageApiClient = ZebraStorageApiHttpClient(httpClient)

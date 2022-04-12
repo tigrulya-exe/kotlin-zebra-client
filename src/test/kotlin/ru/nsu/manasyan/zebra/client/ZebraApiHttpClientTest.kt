@@ -4,6 +4,7 @@ import kotlinx.coroutines.runBlocking
 import ru.nsu.manasyan.zebra.client.http.ZebraApiHttpClient
 import ru.nsu.manasyan.zebra.model.DatabaseUpsertDto
 import ru.nsu.manasyan.zebra.model.RepositoryUpsertDto
+import ru.nsu.manasyan.zebra.model.ScanRequest
 import ru.nsu.manasyan.zebra.model.SearchRequest
 import java.io.File
 import kotlin.test.Test
@@ -29,6 +30,7 @@ internal class ZebraApiHttpClientTest {
             )
         )
         assert(dbCreateResponse.success)
+        assert(zebraApi.repositories.commit(repoCreateResponse.data.id).success)
 
 
         val storageCreateResponse = zebraApi.storages.create(
@@ -47,12 +49,19 @@ internal class ZebraApiHttpClientTest {
         val searchResult = zebraApi.databases.search(
             id = dbCreateResponse.data.id,
             searchRequest = SearchRequest(
-                query = "@1=4 нгу"
+                query = "@and @1=1003 Lavrentyev @1=54 en",
+                recordSchema = "dc"
             )
         )
         assert(searchResult.success)
 
-        println(searchResult.data)
+        val scanResult = zebraApi.databases.scan(
+            id = dbCreateResponse.data.id,
+            scanRequest = ScanRequest(
+                scanClause = "@1=30 2022"
+            )
+        )
+        assert(scanResult.success)
 
         assert(zebraApi.storages.delete(storageCreateResponse.data.id).success)
         assert(zebraApi.databases.delete(dbCreateResponse.data.id).success)
