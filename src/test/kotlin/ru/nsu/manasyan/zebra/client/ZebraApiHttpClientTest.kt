@@ -2,10 +2,7 @@ package ru.nsu.manasyan.zebra.client
 
 import kotlinx.coroutines.runBlocking
 import ru.nsu.manasyan.zebra.client.http.ZebraApiHttpClient
-import ru.nsu.manasyan.zebra.model.DatabaseUpsertDto
-import ru.nsu.manasyan.zebra.model.RepositoryUpsertDto
-import ru.nsu.manasyan.zebra.model.ScanRequest
-import ru.nsu.manasyan.zebra.model.SearchRequest
+import ru.nsu.manasyan.zebra.model.*
 import java.io.File
 import kotlin.test.Test
 
@@ -49,7 +46,8 @@ internal class ZebraApiHttpClientTest {
         val searchResult = zebraApi.databases.search(
             id = dbCreateResponse.data.id,
             searchRequest = SearchRequest(
-                query = "@and @1=1003 Lavrentyev @1=54 en",
+                query = "dc.creator=Пальчунов or dc.creator=Зюбин",
+                type = QueryType.CQL,
                 recordSchema = "dc"
             )
         )
@@ -58,7 +56,8 @@ internal class ZebraApiHttpClientTest {
         val scanResult = zebraApi.databases.scan(
             id = dbCreateResponse.data.id,
             scanRequest = ScanRequest(
-                scanClause = "@1=30 2022"
+                scanClause = "dc.coverage=Novosibirsk",
+                type = QueryType.CQL,
             )
         )
         assert(scanResult.success)

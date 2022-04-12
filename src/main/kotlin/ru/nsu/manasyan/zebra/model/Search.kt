@@ -24,7 +24,6 @@ data class SearchRecord(
     val recordPosition: Int,
     val recordIdentifier: String,
     val recordSchema: String,
-    //todo
     val recordData: String
 )
 
