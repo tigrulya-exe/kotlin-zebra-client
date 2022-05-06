@@ -15,3 +15,16 @@ data class DatabaseUpsertDto(
     val repositoryId: String,
     val name: String
 )
+
+data class UpdateRecordRequest(
+    val record: String,
+    val action: Action = Action.UPDATE,
+    val commitEnable: Boolean = true
+) {
+    enum class Action {
+        @SerializedName("update")
+        UPDATE,
+        @SerializedName("delete")
+        DELETE
+    }
+}

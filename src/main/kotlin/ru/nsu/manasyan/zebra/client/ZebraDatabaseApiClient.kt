@@ -20,4 +20,6 @@ interface ZebraDatabaseApiClient {
     suspend fun search(id: String, searchRequest: SearchRequest): ValueResult<ValueResult<SearchResponse>>
 
     suspend fun scan(id: String, scanRequest: ScanRequest): ValueResult<ValueResult<ScanResponse>>
+
+    suspend fun updateRecord(id: String, updateRequest: UpdateRecordRequest): ValueResult<Boolean>
 }
