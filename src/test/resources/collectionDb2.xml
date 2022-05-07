@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dc:collection xmlns:dc="http://purl.org/dc/elements/1.1/"
+               xmlns:sys="http://fit.nsu.ru/sys/1.0/"
+               xmlns="http://fit.nsu.ru/ds">
+   <dc:metadata>
+      <dc:identifier>https://www.nsu.ru/n/mathematics-mechanics-department/</dc:identifier>
+      <dc:title>Механико-математический факультет Новосибирского государственного университета</dc:title>
+      <dc:title>ММФ НГУ</dc:title>
+      <dc:creator>С.Л.Соболев</dc:creator>
+      <dc:description>Механико-математический факультет Новосибирского государственного университета основан в 1961 году. До выделения в самостоятельный факультет подготовка по специальностям математика и механика осуществлялась с 1959 года сначала в составе факультета естественных наук, а в течение 1960 года - физико-математического факультета. С 1976 года на факультете ведется подготовка по специальности прикладная математика. С середины 90-х годов факультет осуществлял переход на двухуровневую систему "бакалавриат-магистратура" и в 2011 году завершил этот переход. С 2011 года на факультете ведется подготовка по направлению математика и компьютерные науки. </dc:description>
+      <dc:language>ru</dc:language>
+      <dc:publisher>Tigran Manasyan</dc:publisher>
+      <dc:date>2022-03-22</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+      <sys:created-at>2022-05-04T14:00:00</sys:created-at>
+      <sys:updated-at>2022-05-04T14:00:00</sys:updated-at>
+   </dc:metadata>
+   <dc:metadata>
+      <dc:identifier>https://www.nsu.ru/n/mathematics-mechanics-department/departments/kafaiml/</dc:identifier>
+      <dc:title>Кафедра алгебры и математической логики</dc:title>
+      <dc:title>КАиМЛ ММФ НГУ</dc:title>
+      <dc:creator>Васильев Андрей Викторович</dc:creator>
+      <dc:description>Кафедра алгебры и математической логики НГУ создана в 1960 году. Основатель кафедры и первый заведующий - академик А.И. Мальцев. Затем кафедрой руководил чл.-корр. АН СССР М.И. Каргаполов.</dc:description>
+      <dc:language>ru</dc:language>
+      <dc:publisher>Васильев Андрей Викторович</dc:publisher>
+      <dc:date>2022-05-07</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+      <sys:created-at>2022-05-06T22:30:22</sys:created-at>
+      <sys:updated-at>2022-05-07T20:10:38</sys:updated-at>
+   </dc:metadata>
+   <dc:metadata>
+      <dc:identifier>https://www.nsu.ru/n/mathematics-mechanics-department/departments/kafvmat/</dc:identifier>
+      <dc:title>Кафедра высшей математики</dc:title>
+      <dc:title>КВМ ММФ НГУ</dc:title>
+      <dc:creator>Нещадим Михаил Владимирович</dc:creator>
+      <dc:description>Кафедра высшей математики НГУ была образована в 1961 году. В разные периоды времени ее возглавляли член-корреспондент АН СССР А. В. Бицадзе, член-корреспон-дент АН СССР А. А. Ляпунов, академик М. М. Лаврентьев, профессор Д. М. Смирнов, член-корреспондент РАН В. Г. Романов, д.ф.-м.н. М. В. Фокин.</dc:description>
+      <dc:language>ru</dc:language>
+      <dc:publisher>Нещадим Михаил Владимирович</dc:publisher>
+      <dc:date>2022-05-06</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+      <sys:created-at>2022-05-06T22:30:22</sys:created-at>
+      <sys:updated-at>2022-05-07T20:10:38</sys:updated-at>
+   </dc:metadata>
+   <dc:metadata>
+      <dc:identifier>https://www.nsu.ru/n/mathematics-mechanics-department/departments/kafvychmat/</dc:identifier>
+      <dc:title>Кафедра вычислительной математики</dc:title>
+      <dc:title>КВМ ММФ НГУ</dc:title>
+      <dc:creator>Лаевский Юрий Миронович</dc:creator>
+      <dc:description>Кафедра была создана в 1961 году академиком, лауреатом Нобелевской премии Л.В. Канторовичем</dc:description>
+      <dc:language>ru</dc:language>
+      <dc:publisher>Лаевский Юрий Миронович</dc:publisher>
+      <dc:date>2022-05-07</dc:date>
+      <dc:coverage>Novosibirsk</dc:coverage>
+      <sys:created-at>2022-05-06T22:30:22</sys:created-at>
+      <sys:updated-at>2022-05-07T20:10:38</sys:updated-at>
+   </dc:metadata>
+</dc:collection>

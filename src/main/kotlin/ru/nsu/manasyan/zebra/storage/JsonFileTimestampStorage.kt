@@ -13,9 +13,9 @@ import kotlin.io.path.exists
 import kotlin.io.path.readText
 import kotlin.io.path.writeText
 
-class TimestampJsonFileStorage(
+class JsonFileTimestampStorage(
     private val filePath: Path = Path.of("./TIMESTAMPS.json"),
-    private val jsonSerializer: Gson
+    private val jsonSerializer: Gson = Gson()
 ) : TimestampStorage {
 
     private val lock = ReentrantReadWriteLock()

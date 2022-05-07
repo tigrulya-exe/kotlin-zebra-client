@@ -46,8 +46,11 @@ class ZebraStorageApiHttpClient(private val httpClient: HttpClient) : ZebraStora
         })
     }
 
-
     override suspend fun delete(id: String): ValueResult<StorageDto> {
         return wrapResponse(httpClient.delete("$BASE_URL/$id"))
     }
+
+    override suspend fun deleteAll(): List<ValueResult<StorageDto>> =
+        getAll().data.map { delete(it.id) }
+
 }

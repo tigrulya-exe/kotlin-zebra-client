@@ -43,6 +43,9 @@ class ZebraRepositoryApiHttpClient(private val httpClient: HttpClient) : ZebraRe
         return wrapResponse(httpClient.delete("$BASE_URL/$id"))
     }
 
+    override suspend fun deleteAll(): List<ValueResult<RepositoryDto>> =
+        getAll().data.map { delete(it.id) }
+
     override suspend fun init(id: String): ValueResult<RepositoryDto> {
         return wrapResponse(httpClient.post("$BASE_URL/$id/init"))
     }

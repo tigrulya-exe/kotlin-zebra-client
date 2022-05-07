@@ -16,4 +16,6 @@ interface ZebraStorageApiClient {
     suspend fun update(id: String, updateDto: UpdateStorageDto): ValueResult<StorageDto>
 
     suspend fun delete(id: String): ValueResult<StorageDto>
+
+    suspend fun deleteAll(): List<ValueResult<StorageDto>>
 }

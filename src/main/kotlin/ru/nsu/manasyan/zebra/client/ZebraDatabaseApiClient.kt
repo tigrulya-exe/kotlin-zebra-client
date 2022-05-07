@@ -15,6 +15,8 @@ interface ZebraDatabaseApiClient {
 
     suspend fun delete(id: String): ValueResult<DatabaseDto>
 
+    suspend fun deleteAll(): List<ValueResult<DatabaseDto>>
+
     suspend fun drop(id: String): ValueResult<DatabaseDto>
 
     suspend fun search(id: String, searchRequest: SearchRequest): ValueResult<ValueResult<SearchResponse>>

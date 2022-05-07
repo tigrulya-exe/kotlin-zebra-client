@@ -40,6 +40,9 @@ class ZebraDatabaseApiHttpClient(private val httpClient: HttpClient) : ZebraData
         return wrapResponse(httpClient.delete("$BASE_URL/$id"))
     }
 
+    override suspend fun deleteAll(): List<ValueResult<DatabaseDto>> =
+        getAll().data.map { delete(it.id) }
+
     override suspend fun insertStorage(id: String, storageId: String): ValueResult<DatabaseDto> {
         return wrapResponse(httpClient.post("$BASE_URL/$id/update/$storageId"))
     }
