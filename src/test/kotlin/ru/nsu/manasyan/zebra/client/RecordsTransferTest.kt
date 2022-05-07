@@ -6,6 +6,8 @@ import ru.nsu.manasyan.zebra.client.TestUtils.clearAllReposRecursively
 import ru.nsu.manasyan.zebra.client.TestUtils.createDb
 import ru.nsu.manasyan.zebra.client.TestUtils.createRepo
 import ru.nsu.manasyan.zebra.client.TestUtils.createStorage
+import ru.nsu.manasyan.zebra.model.QueryType
+import ru.nsu.manasyan.zebra.model.SearchRequest
 import ru.nsu.manasyan.zebra.service.ZebraRecordsTransferService
 import ru.nsu.manasyan.zebra.storage.JsonFileTimestampStorage
 
@@ -38,8 +40,19 @@ internal class RecordsTransferTest {
             db3Info.id
         )
 
+        println("here ${db1Info.id} ${db2Info.id} ${db3Info.id}")
+
         //TODO
         // some value checks
+        val (success, data) = TestUtils.zebraApi.databases.search(
+            db3Info.id,
+            SearchRequest(
+                "",
+                QueryType.PQF
+            )
+        )
+        assert(success)
+        assert(data.data.records?.isNotEmpty() ?: false)
 
         clearAllReposRecursively()
     }

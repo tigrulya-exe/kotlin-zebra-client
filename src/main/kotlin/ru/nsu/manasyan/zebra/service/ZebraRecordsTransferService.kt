@@ -12,7 +12,7 @@ class ZebraRecordsTransferService(
     private val dbApiClient: ZebraDatabaseApiClient,
     private val currentTimestampProvider: () -> Instant = Instant::now,
     private val sourceRecordsFilterProducer: (Instant) -> SearchRequest =
-        { SearchRequest("@1=1011 @5=1 $it") }
+        { SearchRequest("@or @1=1011 @5=1 $it @1=1012 @5=1 $it") }
 ) {
     suspend fun transferRecords(
         sourceDbIds: List<String>,
@@ -35,8 +35,8 @@ class ZebraRecordsTransferService(
             sourceDbId, sourceRecordsFilterProducer.invoke(dbLastTransferred)
         ).data.data.records
 
-        records.map { it.recordData }
-            .forEach { dbApiClient.updateRecord(targetDbId, UpdateRecordRequest(it)) }
+        records?.map { it.recordData }
+            ?.forEach { dbApiClient.updateRecord(targetDbId, UpdateRecordRequest(it)) }
 
         timestampStorage.putTimestamp(sourceDbId, currentTimestamp)
     }

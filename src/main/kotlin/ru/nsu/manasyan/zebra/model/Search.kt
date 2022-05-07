@@ -16,8 +16,8 @@ data class SearchRequest(
 
 data class SearchResponse(
     val numberOfRecords: Int,
-    val records: List<SearchRecord>,
-    val diagnostics: List<SearchDiagnostics>
+    val records: List<SearchRecord>?,
+    val diagnostics: List<SearchDiagnostics>?
 )
 
 data class SearchRecord(
@@ -41,8 +41,8 @@ data class ScanRequest(
 
 
 data class ScanResponse(
-    val terms: List<ScanTerm>,
-    val diagnostics: List<SearchDiagnostics>
+    val terms: List<ScanTerm>?,
+    val diagnostics: List<SearchDiagnostics>?
 )
 
 data class ScanTerm(
