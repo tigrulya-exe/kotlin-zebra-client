@@ -1,8 +1,10 @@
 package ru.nsu.manasyan.zebra.storage
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import ru.nsu.manasyan.zebra.util.InstantJsonAdapter
 import ru.nsu.manasyan.zebra.util.fromJson
 import java.nio.file.Path
 import java.time.Instant
@@ -15,7 +17,9 @@ import kotlin.io.path.writeText
 
 class JsonFileTimestampStorage(
     private val filePath: Path = Path.of("./TIMESTAMPS.json"),
-    private val jsonSerializer: Gson = Gson()
+    private val jsonSerializer: Gson = GsonBuilder()
+        .registerTypeAdapter(Instant::class.java, InstantJsonAdapter())
+        .create()
 ) : TimestampStorage {
 
     private val lock = ReentrantReadWriteLock()

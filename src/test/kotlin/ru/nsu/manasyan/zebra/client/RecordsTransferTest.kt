@@ -35,20 +35,20 @@ internal class RecordsTransferTest {
         )
 
         val db3Info = createDb(repoInfo.id, "db3")
+        println("here ${db1Info.id} ${db2Info.id} ${db3Info.id}")
         recordsTransferService.transferRecords(
             listOf(db1Info.id, db2Info.id),
             db3Info.id
         )
-
-        println("here ${db1Info.id} ${db2Info.id} ${db3Info.id}")
 
         //TODO
         // some value checks
         val (success, data) = TestUtils.zebraApi.databases.search(
             db3Info.id,
             SearchRequest(
-                "",
-                QueryType.PQF
+                "@1=4 нгу",
+                QueryType.PQF,
+                recordSchema = "dc"
             )
         )
         assert(success)

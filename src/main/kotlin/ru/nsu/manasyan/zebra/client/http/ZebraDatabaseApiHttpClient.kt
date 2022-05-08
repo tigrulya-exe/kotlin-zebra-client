@@ -73,7 +73,7 @@ class ZebraDatabaseApiHttpClient(private val httpClient: HttpClient) : ZebraData
         })
     }
 
-    override suspend fun updateRecord(id: String, updateRequest: UpdateRecordRequest): ValueResult<Boolean> {
+    override suspend fun updateRecord(id: String, updateRequest: UpdateRecordRequest) {
         return wrapResponse(httpClient.post {
             url("$BASE_URL/$id/updateRecord")
             contentType(ContentType.Application.Json)

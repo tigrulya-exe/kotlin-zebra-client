@@ -23,5 +23,5 @@ interface ZebraDatabaseApiClient {
 
     suspend fun scan(id: String, scanRequest: ScanRequest): ValueResult<ValueResult<ScanResponse>>
 
-    suspend fun updateRecord(id: String, updateRequest: UpdateRecordRequest): ValueResult<Boolean>
+    suspend fun updateRecord(id: String, updateRequest: UpdateRecordRequest)
 }
