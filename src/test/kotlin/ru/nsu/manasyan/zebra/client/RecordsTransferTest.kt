@@ -51,7 +51,7 @@ internal class RecordsTransferTest {
             )
         )
         assert(db3SearchResponse.data.success)
-        assertEquals(5, db3SearchResponse.data.data.records?.size)
+        assertEquals(4, db3SearchResponse.data.data.records?.size)
 
         clearAllReposRecursively()
     }
