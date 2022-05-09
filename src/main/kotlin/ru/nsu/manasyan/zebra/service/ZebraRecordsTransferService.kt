@@ -44,16 +44,23 @@ class ZebraRecordsTransferService(
             "@1=1012 @6=3 $dbLastTransferred"
         )
 
-        val recordsToTransfer = dbApiClient.search(
-            sourceDbId,
-            buildNotTransferredRecordsSearchRequest(
-                createdAfterTransfer,
-                modifiedAfterTransfer
-            )
-        ).data.data.records
+        buildNotTransferredRecordsSearchRequest(
+            createdAfterTransfer,
+            modifiedAfterTransfer
+        )?.let { searchRequest ->
+            val searchResponse = dbApiClient.search(sourceDbId, searchRequest).data
 
-        recordsToTransfer?.map { it.recordData }
-            ?.forEach { dbApiClient.updateRecord(targetDbId, UpdateRecordRequest(it)) }
+            if (!searchResponse.success) {
+                throw RuntimeException(
+                    "Error during records transfer: can't search for source records"
+                )
+            }
+
+            searchResponse.data
+                .records
+                ?.map { it.recordData }
+                ?.forEach { dbApiClient.updateRecord(targetDbId, UpdateRecordRequest(it)) }
+        }
 
         timestampStorage.putTimestamp(sourceDbId, currentTimestamp)
     }
@@ -61,11 +68,28 @@ class ZebraRecordsTransferService(
     private fun buildNotTransferredRecordsSearchRequest(
         createdAfterTransfer: Set<String>,
         modifiedAfterTransfer: Set<String>
-    ) = SearchRequest(
-        "@or @1=1011 @4=106 ${mapTimestampsToQuery(createdAfterTransfer)} "
-            + "@1=1012 @4=106 ${mapTimestampsToQuery(modifiedAfterTransfer)}",
-        recordSchema = "dc"
-    )
+    ): SearchRequest? {
+        val (createdAtTimestamps, modifiedAtTimestamps) = listOf(
+            createdAfterTransfer,
+            modifiedAfterTransfer
+        ).map { if (it.isNotEmpty()) mapTimestampsToQuery(createdAfterTransfer) else null }
+
+        val queryBuilder = StringBuilder()
+
+        createdAtTimestamps?.let { createdAt ->
+            modifiedAtTimestamps?.let { modifiedAt ->
+                queryBuilder.append("@or @1=1012 @4=106 $modifiedAt ")
+            }
+            queryBuilder.append("@1=1011 @4=106 $createdAt ")
+        }
+
+        return if (queryBuilder.isNotEmpty()) {
+            SearchRequest(
+                queryBuilder.toString(),
+                recordSchema = "dc"
+            )
+        } else null
+    }
 
     private fun mapTimestampsToQuery(values: Set<String>) = values.joinToString(
         prefix = "\"",
@@ -80,7 +104,7 @@ class ZebraRecordsTransferService(
         val scanResult = dbApiClient.scan(sourceDbId, ScanRequest(scanClause))
         scanResult.data.apply {
             if (!success) {
-                throw RuntimeException("Error during scan")
+                throw RuntimeException("Error during records transfer: can't scan for source records")
             }
             return data.terms
                 ?.map { it.displayTerm }

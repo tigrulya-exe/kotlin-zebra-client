@@ -6,16 +6,18 @@ import ru.nsu.manasyan.zebra.client.TestUtils.clearAllReposRecursively
 import ru.nsu.manasyan.zebra.client.TestUtils.createDb
 import ru.nsu.manasyan.zebra.client.TestUtils.createRepo
 import ru.nsu.manasyan.zebra.client.TestUtils.createStorage
+import ru.nsu.manasyan.zebra.client.TestUtils.zebraApi
 import ru.nsu.manasyan.zebra.model.QueryType
 import ru.nsu.manasyan.zebra.model.SearchRequest
 import ru.nsu.manasyan.zebra.service.ZebraRecordsTransferService
 import ru.nsu.manasyan.zebra.storage.JsonFileTimestampStorage
+import kotlin.test.assertEquals
 
 internal class RecordsTransferTest {
 
     private val recordsTransferService = ZebraRecordsTransferService(
         JsonFileTimestampStorage(),
-        TestUtils.zebraApi.databases
+        zebraApi.databases
     )
 
     @Test
@@ -35,15 +37,12 @@ internal class RecordsTransferTest {
         )
 
         val db3Info = createDb(repoInfo.id, "db3")
-        println("here ${db1Info.id} ${db2Info.id} ${db3Info.id}")
         recordsTransferService.transferRecords(
             listOf(db1Info.id, db2Info.id),
             db3Info.id
         )
 
-        //TODO
-        // some value checks
-        val (success, data) = TestUtils.zebraApi.databases.search(
+        val db3SearchResponse = zebraApi.databases.search(
             db3Info.id,
             SearchRequest(
                 "@1=4 нгу",
@@ -51,8 +50,8 @@ internal class RecordsTransferTest {
                 recordSchema = "dc"
             )
         )
-        assert(success)
-        assert(data.data.records?.isNotEmpty() ?: false)
+        assert(db3SearchResponse.data.success)
+        assertEquals(5, db3SearchResponse.data.data.records?.size)
 
         clearAllReposRecursively()
     }
