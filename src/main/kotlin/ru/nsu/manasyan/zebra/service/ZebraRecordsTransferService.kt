@@ -28,8 +28,7 @@ class ZebraRecordsTransferService(
         defaultLastTransferredTimestamp: Instant = Instant.EPOCH
     ) {
         val dbLastTransferred = formatInstant(
-            timestampStorage.getTimestamp(sourceDbId)
-                ?: timestampStorage.putTimestamp(sourceDbId, defaultLastTransferredTimestamp)
+            timestampStorage.getTimestamp(sourceDbId) ?: defaultLastTransferredTimestamp
         )
 
         val currentTimestamp = currentTimestampProvider.get()
