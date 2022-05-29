@@ -12,7 +12,6 @@ class RepositoryBalancer {
         val (bestNode, score) = context
             .nodes
             .map { Pair(it, calculateScore(it)) }
-//            .onEach { println("${it.first.namespace} <--> ${it.second}") }
             .maxByOrNull { it.second }
             ?: return Result.NotFound("Nodes not found in the context")
 
@@ -20,7 +19,6 @@ class RepositoryBalancer {
             return Result.NotFound("Out of space")
         }
 
-//        println("bestNode ${bestNode.namespace} score $score")
         bestNode.repoAmount++
         return Result.Success(bestNode.namespace)
     }
@@ -29,7 +27,8 @@ class RepositoryBalancer {
         val canFitMultiplier = if (canFitRepo) 1 else 0
         canFitMultiplier *
                 (0.5 * (diskSize - 2 * maxRepoSize * repoAmount) / diskSize
-                        + 0.3 * processorsCount / NodeDescriptorConfig.processorsCountRange.second
-                        + 0.2 * ramSize / NodeDescriptorConfig.ramSizeRange.second)
+                        + 0.2 * processorsCount / NodeDescriptorConfig.processorsCountRange.second
+                        + 0.2 * ramSize / NodeDescriptorConfig.ramSizeRange.second
+                        + 0.1 * maxRepoSize / diskSize)
     }
 }

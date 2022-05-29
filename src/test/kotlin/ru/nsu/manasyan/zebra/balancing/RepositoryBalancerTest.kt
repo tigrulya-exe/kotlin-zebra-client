@@ -49,7 +49,7 @@ internal class RepositoryBalancerTest {
             addNodes(nodes)
         }
 
-        repeat(50) {
+        repeat(60) {
             val result = balancer.selectNamespace(context)
             if (result is RepositoryBalancer.Result.NotFound) {
                 println("Error balancing during $it iteration: ${result.reason}")
@@ -61,7 +61,7 @@ internal class RepositoryBalancerTest {
 
     private fun multiplySpec(node: NodeDescriptor, namespace: String, times: Int) = NodeDescriptor.of(
         namespace = namespace,
-        maxRepoSize = min(node.maxRepoSize * times, NodeDescriptorConfig.maxRepoSizeRange.second),
+        maxRepoSize = min(node.maxRepoSize, NodeDescriptorConfig.maxRepoSizeRange.second),
         diskSize = min(node.diskSize * times, NodeDescriptorConfig.diskSizeRange.second),
         ramSize = min(node.ramSize * times, NodeDescriptorConfig.ramSizeRange.second),
         processorsCount = min(node.processorsCount * times, NodeDescriptorConfig.processorsCountRange.second)
